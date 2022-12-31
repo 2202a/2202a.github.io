@@ -1,0 +1,324 @@
+<!--网页start-->
+<!DOCTYPE html>
+<html copyright="Orangesoft:2022" lang="zh_CN">
+  <!--标题start-->
+  <head>
+    <meta charset="utf-8"> 
+    <title>2202</title>
+    <meta name="keywords" content="橙软起始页,OSP">
+    <meta name="description" content="由橙软开发的浏览器起始页。">
+    <meta name="author" content="你看见作者名字写在哪里了吗?在哪里?">
+    <link rel="icon" href="https://coderorangesoft.github.io/logo.ico">
+  </head>
+  <!--标题end-->
+
+  <!--css start-->
+  <style>
+    header
+    {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    body 
+    {
+      margin: 0;
+	  background-color:white;
+	  background-size:150% 150%;
+	  background-repeat:no-repeat;
+    }
+    #time
+    {
+      text-align:center;
+      color:black;
+      font-weight: lighter;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    #time:hover
+    {
+      text-align:center;
+      font-weight: lighter;
+      transform:scale(1.1);
+    }
+    hr
+    {
+      height:2px;
+      border:none;
+      border-top:2px dotted #185598;
+    }
+    .bing
+    {
+      text-align:center;
+    }
+    form
+    {
+      text-align:center;
+    }
+    #search-input
+    {
+      background-color:black;
+      height:50px;
+      width:500px;
+      border:none;
+      color:black;
+      background-color:lightgrey;
+      border:1px solid lightgrey;
+    }
+    #search-input:hover
+    {
+      border:1px solid black;
+    }
+    #search-button
+    {
+      background-color:#1867DC;
+      height:52px;
+      border:none;
+      color:white;
+      border:1px solid #1867DC;
+    }
+    #search-button:hover
+    {
+      border:1px solid black;
+    }
+    .buttons
+    {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:40px;
+    }
+    .button 
+    {
+      flex: 1 1 auto;
+      border: 2px solid white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+      border-radius:10px;
+      border:1px dashed grey;
+    }
+    .button:hover
+    {
+      background-color:lightblue;
+      border:1px solid grey;
+    }
+    .button:hover:after 
+    {
+      width: 0%;
+    }
+    .img
+    {
+      width:60px;
+      height:60px;
+    }
+    .footer
+    {
+      text-align:center;
+    }
+    .goToO_C
+    {
+      text-decoration:none;
+      color:grey;
+    }
+    .window
+    {
+      width:auto;
+      border: 1px solid black;
+      border-radius:10px;
+      position:fixed; 
+      background-color:white;
+      top:5px; 
+      right:5px;
+      z-index:2000;
+      transition: 0.3s;
+      display:flex;
+    }
+    .window:hover
+    {
+      border-radius:0px;
+      background-color:orange;
+      transition: 0.3s;
+      border-radius:0px;
+    }
+    .windowButton
+    {
+      background-color: Transparent;
+      background-repeat:no-repeat;
+      border: none;
+      cursor:pointer;
+      overflow: hidden;
+      outline:none;
+      transition: 0.3s;
+    }
+    .windowButton:hover
+    {
+      background-color:#FF643D;
+    }
+    @media screen and (max-width:650px) 
+    {
+      .buttons
+      {
+        display:flex;
+        justify-content:center;
+        gap:20px;
+      }
+      #search-input
+      {
+        height:50px;
+        width:300px;
+        border:none;
+        color:black;
+        background-color:lightgrey;
+      }
+      #search-button
+      {
+        height:50px;
+        border:none;
+        color:white;
+      }
+    }
+    @media screen and (max-width:400px) 
+    {
+      .buttons
+      {
+        display:flex;
+        justify-content:center;
+        gap:10px;
+      }
+      #search-input
+      {
+        height:50px;
+        width:150px;
+        border:none;
+        color:black;
+        background-color:lightgrey;
+      }
+      #search-button
+      {
+        height:50px;
+        border:none;
+        color:white;
+      }
+    }
+    @media screen and (max-width:250px) 
+    {
+	    .body
+      {
+        margin: 0;
+	      background-color:white;
+	      background-size:150% 150%;
+	      background-repeat:no-repeat;
+      }
+      .img
+      {
+        width:40px;
+        height:40px;
+      }
+      .buttons
+      {
+        display:flex;
+        justify-content:center;
+        gap:5px;
+      }
+      #search-input
+      {
+        height:50px;
+        width:50px;
+        border:none;
+        color:black;
+        background-color:lightgrey;
+      }
+      #search-button
+      {
+        height:50px;
+        border:none;
+        color:white;
+      }
+    }
+  </style>
+  <!--css end-->
+
+  <!--js start-->
+  <script>
+    document.onselectstart=function(){return false}
+    document.oncontextmenu=function(){return false}
+    document.ondragstart=function(){return false}
+    document.onselect=function(){return false}
+    window.onload=function()
+    {
+      showTime();
+    }
+    function showTime()
+    {
+      var today=new Date();
+      var y=today.getFullYear();
+      var M=today.getMonth()+1;
+      var d=today.getDate();
+      var h=today.getHours();
+      var m=today.getMinutes();
+      var s=today.getSeconds();
+      m=checkTime(m);
+      s=checkTime(s);
+      var week=today.getDay();
+      var w=new Array('星期天','星期一','星期二','星期三','星期四','星期五','星期六');
+      for (var i=0;i<w.length;i++) 
+      {
+        document.getElementById('time').innerHTML=h+":"+m;
+      }    
+      setTimeout('showTime()',500);
+    }
+    function checkTime(i)
+    {
+      if (i<10) 
+      {
+        i="0" + i;
+      }
+      return i
+    }
+    //时间end
+  </script>
+  <!--js end -->
+
+  <!--页首start-->
+  <div>
+    <br /><br />
+      <font size="5">
+        <h1 id="time">00:00</h1>
+      </font>
+  </div>
+  <!--页首end-->
+
+  <!--内容start-->
+  <body>
+    <form action="https://cn.bing.com/search" target="_self" method="get">
+      <input type="text" id="search-input" name="q" placeholder="在这里输入你想搜索的内容" autofocus>
+      <input type="submit" id="search-button" value="搜索">
+    </form>
+    <br />
+    <br />
+    <div class="buttons">
+      <a href="https://exam.fclassroom.com/">
+        <button class="button">
+          <img src="https://lf3-fe-static.fclassroom.com/obj/ek-static/ark-l-master-web/favicon.ico" class="img">
+          <h1></h1>
+          <h4>极客大数据</h4>
+        </button>
+      </a>
+    </div>
+  </body>
+  <!--内容end-->
+  <!--窗口start-->
+  <br />
+  <br />
+  <!--页眉start-->
+  <footer>
+    <div class="footer">
+      <h4 style="font-weight:lighter">本页面由2202班创建</h4>
+    </div>
+  </footer>
+  <!--页眉end-->
+</html>
+<!--网页end-->
