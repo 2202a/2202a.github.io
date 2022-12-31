@@ -5,9 +5,6 @@
   <head>
     <meta charset="utf-8"> 
     <title>2202</title>
-    <meta name="keywords" content="橙软起始页,OSP">
-    <meta name="description" content="由橙软开发的浏览器起始页。">
-    <meta name="author" content="你看见作者名字写在哪里了吗?在哪里?">
     <link rel="icon" href="https://coderorangesoft.github.io/logo.ico">
   </head>
   <!--标题end-->
@@ -266,7 +263,7 @@
       var w=new Array('星期天','星期一','星期二','星期三','星期四','星期五','星期六');
       for (var i=0;i<w.length;i++) 
       {
-        document.getElementById('time').innerHTML=h+":"+m;
+        document.getElementById('time').innerHTML=h+":"+m+":"+s;
       }    
       setTimeout('showTime()',500);
     }
@@ -286,7 +283,7 @@
   <div>
     <br /><br />
       <font size="5">
-        <h1 id="time">00:00</h1>
+        <h1 id="time">00:00:00</h1>
       </font>
   </div>
   <!--页首end-->
